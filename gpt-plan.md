@@ -32,14 +32,18 @@ Whether you need additional tables in your blog project database depends on the 
 
 When adding these tables, think carefully about the relationships between them and your existing tables. Consider using Django's built-in functionalities for some of these features, like permissions and user management. And remember to adhere to normalization principles to avoid redundancy and maintain data integrity. Always balance between the complexity that each new table adds and the actual benefit it provides to your application.
 
-    Categories/Tags: To organize blog posts, you could add a Categories or Tags table. This could allow users to filter or search for blog posts by topic.
+## Apps Example Structure
 
-    User Profile: If you want to store additional information about the users beyond what's available in the default Django User model, you might create a UserProfile table with a one-to-one relationship to the User table.
+    User App: This app would use Django's built-in User model to handle authentication, including user registration, login, logout, and password management. It would deal with the basics of user authentication that Django directly provides.
 
-    Subscription: If you plan to implement a subscription feature, where users can subscribe to newsletters or notifications about new posts, you may need a Subscription table.
+    Profile App: This app would be responsible for the extended user profile. It would define the UserProfile model that has a one-to-one relationship with Django's User model, managing additional information such as the user's bio, profession, and any other extra data you wish to include. It would also manage profile-related views and templates, like profile detail and edit views.
 
-    Likes/Reactions: A table to store user reactions to blog posts, like likes, thumbs-up, hearts, etc.
+    Comments App: Manages user comments on blog posts, which includes storing, moderating, and displaying comments.
 
-    Content Revision History: If you want to keep track of edits to blog posts, you could have a PostHistory or Revisions table that keeps snapshots of each edit.
+    Reactions App: Handles user interactions like likes or reactions to blog posts, storing each action in the database.
 
-    Notifications: For notifying authors about new comments or subscribers about new posts.
+    Subscription App: Manages user subscriptions, allowing users to sign up for newsletters or notifications.
+
+    Notification App: Sends notifications to users. This might involve email alerts or in-app notifications about new comments, likes, or blog posts.
+
+    Media App: Handles the uploading, storage, and serving of images associated with blog posts.
