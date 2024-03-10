@@ -24,6 +24,7 @@ class Blog(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
+    is_public = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title

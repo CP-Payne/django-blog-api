@@ -39,3 +39,10 @@ In order to modify the database and tables through the admin app you need to reg
 
 ## Populating database with testing data
 - `python manage.py populate_categories_and_tags` --> Adding initial Categories and Tags
+
+
+
+## Function based handlers
+See `blog_app/views.py`:
+- Only when you have function based views do you use `api_views`:
+  - `from rest_framework.decorators import api_view`
