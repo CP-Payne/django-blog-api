@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from blog_app.models import Blog
 
 # Create your models here.
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    blog = models.ForeignKey('Blog', on_delete=models.CASCADE, related_name='comments')
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='comments')
     message = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
 
@@ -14,7 +15,7 @@ class Comment(models.Model):
 
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    blog = models.ForeignKey('Blog', on_delete=models.CASCADE, related_name='likes')
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='likes')
     created_at = models.DateTimeField(default=timezone.now)
 
     class Meta:

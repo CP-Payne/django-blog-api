@@ -40,9 +40,9 @@ class BlogTag(models.Model):
 class Image(models.Model):
     blog = models.ForeignKey(Blog, related_name='images', on_delete=models.CASCADE)
     image_blob = models.ImageField(upload_to='blog_images')
-
+    image_name = models.CharField(max_length=255)
     def __str__(self):
-        return f'Image for {self.blog.title}'
+        return f'Image "{self.image_name}" for {self.blog.title}'
 
 
     
