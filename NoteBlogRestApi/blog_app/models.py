@@ -18,12 +18,12 @@ class Tag(models.Model):
 
 class Blog(models.Model):
     title = models.CharField(max_length=255)
+    snippet = models.CharField(max_length=255, null=True)
     content = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
-    tags = models.ManyToManyField(Tag, through='BlogTag')
 
     def __str__(self):
         return self.title
