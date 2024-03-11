@@ -5,7 +5,9 @@ from . import views
 #router.register(r'blog-list', blog_details )
 
 urlpatterns = [
-    path('view-posts/', views.view_posts, name="view_posts"),
-    path('blog-details/<int:blog_id>', views.blog_details, name="blog_details")
+    path('blogs/', views.BlogPostCreateUpdateRetrieveView.as_view(), name="blog-list"),
+    path('blogs/<int:blog_id>', views.BlogPostCreateUpdateRetrieveView.as_view(), name="blog-details"),
+    #path('create/', views.BlogPostCreateUpdateRetrieveView.as_view(), name='blog-create'),
+    #path('update/<int:pk>', views.BlogPostCreateUpdateRetrieveView.as_view(), name='blog-update'),
     #path('', include(router.urls))
 ]

@@ -46,3 +46,13 @@ In order to modify the database and tables through the admin app you need to reg
 See `blog_app/views.py`:
 - Only when you have function based views do you use `api_views`:
   - `from rest_framework.decorators import api_view`
+
+## Research How Cors Works
+
+
+Building a user authentication app with React and Django Rest Framework -> https://www.youtube.com/watch?v=diB38AvVkHw
+
+
+Custom Auth vs built in auth
+- Watch above video for custom views for auth
+- The following video imports the auth views (created by django): https://www.youtube.com/watch?v=bLGAKqn_stA&list=PLKnjLEpehhFlspe6zU1yyx5HDvPVDWMBe&index=48
