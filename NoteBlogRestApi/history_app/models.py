@@ -9,7 +9,8 @@ class PostHistory(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
-    updated_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    description = models.TextField(default="")
 
     def __str__(self):
-        return f'History for {self.blog.title} by {self.updated_by.username}'
+        return f'History for {self.blog.title} at {self.created_at}'
