@@ -110,9 +110,9 @@ WSGI_APPLICATION = "NoteBlogRestApi.wsgi.application"
 DATABASES = {
     'default' : {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'NoteBlog',
-        'USER': 'charles',
-        'PASSWORD': 'postgres',
+        'NAME': 'noteblog',
+        'USER': 'dev',
+        'PASSWORD': 'CHANGETHISPASSWORD',
         'HOST': 'localhost',
         'PORT': '5432'
     }

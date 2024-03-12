@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework import generics
 from .models import Comment, Like
 from .serializers import CommentSerializer
@@ -33,6 +33,10 @@ class CommentsByBlogView(generics.ListAPIView):
 class CommentDeleteView(generics.DestroyAPIView):
     queryset = Comment.objects.all()
     permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]  # Ensures only authenticated and owners can delete
+    
+    def get_object(self):
+        comment_id = self.kwargs.get('comment_id')
+        return get_object_or_404(Comment, id=comment_id)
 
     def perform_destroy(self, instance):
         instance.delete()
