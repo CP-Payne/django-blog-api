@@ -9,3 +9,7 @@ Future Todo:
 
 - User/Author should be able to choose between username and name to be displayed on blog and messages
 - Implement blog search functionality
+- Add ability to delete blog
+
+- Implement Alias for comments
+
