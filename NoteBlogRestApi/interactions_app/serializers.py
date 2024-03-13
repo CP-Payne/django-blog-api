@@ -19,3 +19,11 @@ class CommentSerializer(serializers.ModelSerializer):
 
     def get_user_fullname(self, obj):
         return f"{obj.user.first_name} {obj.user.last_name}"
+
+class LikeSerializer(serializers.ModelSerializer):
+
+    blog = serializers.PrimaryKeyRelatedField(queryset=Blog.objects.all(), required=True)
+    class Meta:
+        model = Like
+        fields = ['blog', 'user']
+        read_only_fields = ['user']

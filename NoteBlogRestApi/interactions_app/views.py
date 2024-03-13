@@ -1,10 +1,14 @@
 from django.shortcuts import render, get_object_or_404
 from rest_framework import generics
 from .models import Comment, Like
-from .serializers import CommentSerializer
+from .serializers import CommentSerializer, LikeSerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated, AllowAny
 from .permissions import IsOwnerOrReadOnly
 from blog_app.models import Blog
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+from rest_framework import status
 
 # Create your views here.
 class CommentCreateView(generics.CreateAPIView):
@@ -40,3 +44,29 @@ class CommentDeleteView(generics.DestroyAPIView):
 
     def perform_destroy(self, instance):
         instance.delete()
+
+class ToggleLikeView(APIView):
+    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
+    queryset = Like.objects.all()
+    serializer_class = LikeSerializer
+
+    def post(self, request, blog_id, format=None):
+        user = request.user
+        blog = get_object_or_404(Blog, pk=blog_id)
+
+        like, created = Like.objects.get_or_create(user=user, blog=blog)
+
+        if not created:
+            like.delete()
+            return Response({'status': 'unliked'}, status=status.HTTP_204_NO_CONTENT)
+
+        serializer = LikeSerializer(like)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+class BlogLikesCountView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request, blog_id, format=None):
+        blog = get_object_or_404(Blog, pk=blog_id)
+        likes_count = Like.objects.filter(blog=blog).count()
+        return Response({"likes_count": likes_count})
