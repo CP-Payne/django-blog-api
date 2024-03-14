@@ -1,3 +1,8 @@
+// NOT FINISHED UNTIL:
+
+- Add endpoint to create bio
+- Fix Auth bypass in update blog
+
 Blog API
 
 // Working on it...
@@ -15,3 +20,5 @@ Future Todo:
 - Implement Alias for comments
 
 - Error message not correct when token is not provided (Custom Permissions Only)
+
+- Add ability to choose which subscriptions/subscribers to view (Active/in-active)
