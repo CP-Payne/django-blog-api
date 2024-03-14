@@ -22,3 +22,9 @@ Future Todo:
 - Error message not correct when token is not provided (Custom Permissions Only)
 
 - Add ability to choose which subscriptions/subscribers to view (Active/in-active)
+
+# Advanced TODO:
+
+Real-time Notifications (Advanced)
+
+For a more dynamic user experience, consider integrating real-time notifications using WebSockets with Django Channels or a service like Pusher. This allows notifications to be pushed to users without requiring a page refresh.
