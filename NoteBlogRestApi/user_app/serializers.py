@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
+from .models import UserProfile
 
 class UserRegisterSerializer(serializers.ModelSerializer):
     password_confirm = serializers.CharField(style={'input_type': 'password'}, write_only=True)
@@ -25,3 +26,14 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         account.save()
 
         return account
+
+
+class UserProfileSerializer(serializers.ModelSerializer):
+    user_fullname = serializers.SerializerMethodField();
+    class Meta:
+        model= UserProfile
+        fields=["user_fullname", "bio", "profession"]
+        #read_only_fields = ['id', 'user']
+
+    def get_user_fullname(self, obj):
+        return f"{obj.user.first_name} {obj.user.last_name}"
