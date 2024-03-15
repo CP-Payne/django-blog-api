@@ -6,4 +6,5 @@ class HistoryAppConfig(AppConfig):
     name = "history_app"
 
     def ready(self):
-        import history_app.signals  # Import signals to connect them
+        import history_app.signals  # Import signals to connect them  # noqa: F401
+

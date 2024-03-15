@@ -1,3 +1,5 @@
+# README
+
 // NOT FINISHED UNTIL:
 
 - Add endpoint to create bio
@@ -23,8 +25,16 @@ Future Todo:
 
 - Add ability to choose which subscriptions/subscribers to view (Active/in-active)
 
-# Advanced TODO:
+- Rename user column in database to author were applicable
+
+- Implement UUID instead of Sequential IDs
+
+## Advanced TODO
 
 Real-time Notifications (Advanced)
 
 For a more dynamic user experience, consider integrating real-time notifications using WebSockets with Django Channels or a service like Pusher. This allows notifications to be pushed to users without requiring a page refresh.
+
+Notification Cleanup
+
+Consider implementing a mechanism for cleaning up old notifications, either by deleting them after a certain period or providing users the option to clear their notifications.

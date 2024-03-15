@@ -97,6 +97,6 @@ class SubscribersCountView(APIView):
     def get(self, request):
         user = request.user
 
-        subscribers_count = Subscription.objects.filter(subscriber=user).count()
+        subscribers_count = Subscription.objects.filter(author=user).count()
 
         return Response({"subscribers_count": subscribers_count})
