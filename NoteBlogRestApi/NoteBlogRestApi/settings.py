@@ -38,19 +38,19 @@ ALLOWED_HOSTS = []
 
 # Application definition
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
         # Add any other authentication classes here
     ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
     ],
 }
 
 INSTALLED_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
-    #"corsheaders",
+    # "corsheaders",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -66,7 +66,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    #"corsheaders.middleware.CorsMiddleware"
+    # "corsheaders.middleware.CorsMiddleware"
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -108,13 +108,13 @@ WSGI_APPLICATION = "NoteBlogRestApi.wsgi.application"
 # }
 
 DATABASES = {
-    'default' : {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'NoteBlog', #'noteblog',
-        'USER': 'charles',
-        'PASSWORD': 'postgres',#'CHANGETHISPASSWORD',
-        'HOST': 'localhost',
-        'PORT': '5432'
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "noteblog",  #'noteblog',
+        "USER": "dev",  # "charles",
+        "PASSWORD": "CHANGETHISPASSWORD",  #'postgres'
+        "HOST": "localhost",
+        "PORT": "5432",
     }
 }
 

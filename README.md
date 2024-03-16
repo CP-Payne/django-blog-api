@@ -9,25 +9,18 @@ Blog API
 
 // Working on it...
 
+## Todo For Github Documentation
+
+- Implement settings data for users
+  - Should user full name be displayed in comments, blogs, etc. Should user be anonymous
+- Implement blog search functionality
+- Implement UUID instead of Sequential IDs
+
 Future Todo:
 
-- Users should be able to add custom tags
-
-  - Tags should have a flag to determine whether a user created it or not
-
-- User/Author should be able to choose between username and name to be displayed on blog and messages
-- Implement blog search functionality
-- Add ability to delete blog
-
-- Implement Alias for comments
-
 - Error message not correct when token is not provided (Custom Permissions Only)
-
 - Add ability to choose which subscriptions/subscribers to view (Active/in-active)
-
 - Rename user column in database to author were applicable
-
-- Implement UUID instead of Sequential IDs
 
 ## Advanced TODO
 
