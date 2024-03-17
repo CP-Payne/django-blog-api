@@ -90,6 +90,7 @@ python manage.py runserver
 - Add endpoint to delete blog post (History as well?)
 - Fix auth bypass in update blog
 - Fix Custom Permissions Only endpoints. Incorrect error message when token is not provided. (Verbose error messages)
+- Update environment variables. Create environment file
 
 ## Future Enchancements
 
