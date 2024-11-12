@@ -30,16 +30,20 @@ git clone https://github.com/CP-Payne/django-blog-api.git
 2. Install dependencies
 
 ```bash
+pip install Pillow
+pip install psycopg2
 pip install django djangorestframework
 ```
 
-3. Apply migrations
+3. Update database connection information in `settings.py`. 
+
+4. Apply migrations
 
 ```bash
 python manage.py migrate
 ```
 
-4. Run the server
+5. Run the server
 
 ```bash
 python manage.py runserver
@@ -84,13 +88,6 @@ python manage.py runserver
 - **Get Notifications**: `GET /api/notifications/all` - Retreive all notifications for logged in user.
 - **Mark Notifications as Read**: `POST /api/notifications/read/7` - Mark notifications as read.
 
-## Do ASAP
-
-- Add endpoint to create bio
-- Add endpoint to delete blog post (History as well?)
-- Fix auth bypass in update blog
-- Fix Custom Permissions Only endpoints. Incorrect error message when token is not provided. (Verbose error messages)
-- Update environment variables. Create environment file
 
 ## Future Enchancements
 

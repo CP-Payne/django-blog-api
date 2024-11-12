@@ -4,7 +4,7 @@ from .models import Blog
 from .serializer import BlogSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsOwner
 
 
 # @api_view(['GET'])
@@ -29,6 +29,8 @@ class BlogPostCreateUpdateRetrieveView(generics.GenericAPIView):
         """
         if self.request.method == "GET":
             permission_classes = []
+        elif self.request.method == "PUT":
+            permission_classes = [permissions.IsAuthenticated, IsOwner]
         else:
             permission_classes = [permissions.IsAuthenticated]
         return [permission() for permission in permission_classes]
